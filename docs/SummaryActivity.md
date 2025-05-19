@@ -1,0 +1,50 @@
+
+# SummaryActivity
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**externalId** | **kotlin.String** | The identifier provided at upload time |  [optional]
+**uploadId** | **kotlin.Long** | The identifier of the upload that resulted in this activity |  [optional]
+**athlete** | [**MetaAthlete**](MetaAthlete.md) |  |  [optional]
+**name** | **kotlin.String** | The name of the activity |  [optional]
+**distance** | **kotlin.Float** | The activity&#39;s distance, in meters |  [optional]
+**movingTime** | **kotlin.Int** | The activity&#39;s moving time, in seconds |  [optional]
+**elapsedTime** | **kotlin.Int** | The activity&#39;s elapsed time, in seconds |  [optional]
+**totalElevationGain** | **kotlin.Float** | The activity&#39;s total elevation gain. |  [optional]
+**elevHigh** | **kotlin.Float** | The activity&#39;s highest elevation, in meters |  [optional]
+**elevLow** | **kotlin.Float** | The activity&#39;s lowest elevation, in meters |  [optional]
+**type** | [**ActivityType**](ActivityType.md) | Deprecated. Prefer to use sport_type |  [optional]
+**sportType** | [**SportType**](SportType.md) |  |  [optional]
+**startDate** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) | The time at which the activity was started. |  [optional]
+**startDateLocal** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) | The time at which the activity was started in the local timezone. |  [optional]
+**timezone** | **kotlin.String** | The timezone of the activity |  [optional]
+**startLatlng** | [**LatLng**](LatLng.md) |  |  [optional]
+**endLatlng** | [**LatLng**](LatLng.md) |  |  [optional]
+**achievementCount** | **kotlin.Int** | The number of achievements gained during this activity |  [optional]
+**kudosCount** | **kotlin.Int** | The number of kudos given for this activity |  [optional]
+**commentCount** | **kotlin.Int** | The number of comments for this activity |  [optional]
+**athleteCount** | **kotlin.Int** | The number of athletes for taking part in a group activity |  [optional]
+**photoCount** | **kotlin.Int** | The number of Instagram photos for this activity |  [optional]
+**totalPhotoCount** | **kotlin.Int** | The number of Instagram and Strava photos for this activity |  [optional]
+**map** | [**PolylineMap**](PolylineMap.md) |  |  [optional]
+**trainer** | **kotlin.Boolean** | Whether this activity was recorded on a training machine |  [optional]
+**commute** | **kotlin.Boolean** | Whether this activity is a commute |  [optional]
+**manual** | **kotlin.Boolean** | Whether this activity was created manually |  [optional]
+**&#x60;private&#x60;** | **kotlin.Boolean** | Whether this activity is private |  [optional]
+**flagged** | **kotlin.Boolean** | Whether this activity is flagged |  [optional]
+**workoutType** | **kotlin.Int** | The activity&#39;s workout type |  [optional]
+**uploadIdStr** | **kotlin.String** | The unique identifier of the upload in string format |  [optional]
+**averageSpeed** | **kotlin.Float** | The activity&#39;s average speed, in meters per second |  [optional]
+**maxSpeed** | **kotlin.Float** | The activity&#39;s max speed, in meters per second |  [optional]
+**hasKudoed** | **kotlin.Boolean** | Whether the logged-in athlete has kudoed this activity |  [optional]
+**hideFromHome** | **kotlin.Boolean** | Whether the activity is muted |  [optional]
+**gearId** | **kotlin.String** | The id of the gear for the activity |  [optional]
+**kilojoules** | **kotlin.Float** | The total work done in kilojoules during this activity. Rides only |  [optional]
+**averageWatts** | **kotlin.Float** | Average power output in watts during this activity. Rides only |  [optional]
+**deviceWatts** | **kotlin.Boolean** | Whether the watts are from a power meter, false if estimated |  [optional]
+**maxWatts** | **kotlin.Int** | Rides with power meter data only |  [optional]
+**weightedAverageWatts** | **kotlin.Int** | Similar to Normalized Power. Rides with power meter data only |  [optional]
+
+
+
