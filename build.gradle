@@ -15,8 +15,14 @@ plugins {
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
+// Define base version and add timestamp
+def baseVersion = '1.0.0'
+def buildTime = new Date().format('yyyyMMddHHmmss')
+def fullVersion = "${baseVersion}-${buildTime}"
+
 group = 'io.swagger'
-version = '1.0.1'
+version = fullVersion
+
 
 repositories {
     jcenter()
@@ -53,7 +59,7 @@ publishing {
 
             groupId = 'io.swagger'
             artifactId = 'strava-client'
-            version = '1.0.1'
+            version = fullVersion
         }
     }
 
