@@ -34,11 +34,14 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
-        
+        cache-disabled: true
+
     - name: Run tests
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
+        cache-disabled: true
+
 
   publish:
     needs: build
@@ -61,6 +64,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: publish
+        cache-disabled: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_ACTOR: ${{ github.actor }}
