@@ -1,3 +1,33 @@
+plugins {
+    // Your existing plugins
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)  // or your specific component
+
+            // Optional: customize artifact details
+            groupId = 'io.swagger'
+            artifactId = 'strava-client'
+            version = '1.0.0' // or use project.version
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/tomaszkasprzak/strava-client")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+
 group 'io.swagger'
 version '1.0.0'
 

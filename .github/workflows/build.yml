@@ -8,6 +8,12 @@ on:
   release:
     types: [created]
 
+# Add this permissions block
+permissions:
+  contents: read
+  packages: write
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,3 +63,4 @@ jobs:
         arguments: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ACTOR: ${{ github.actor }}
