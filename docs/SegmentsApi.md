@@ -19,25 +19,31 @@ Explore segments
 Returns the top 10 segments matching a specified query.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SegmentsApi;
 
-val apiInstance = SegmentsApi()
-val bounds : kotlin.Array<kotlin.Float> =  // kotlin.Array<kotlin.Float> | The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude]
-val activityType : kotlin.String = activityType_example // kotlin.String | Desired activity type.
-val minCat : kotlin.Int = 56 // kotlin.Int | The minimum climbing category.
-val maxCat : kotlin.Int = 56 // kotlin.Int | The maximum climbing category.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+SegmentsApi apiInstance = new SegmentsApi();
+List<Float> bounds = Arrays.asList(3.4F); // List<Float> | The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude]
+String activityType = "activityType_example"; // String | Desired activity type.
+Integer minCat = 56; // Integer | The minimum climbing category.
+Integer maxCat = 56; // Integer | The maximum climbing category.
 try {
-    val result : ExplorerResponse = apiInstance.exploreSegments(bounds, activityType, minCat, maxCat)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SegmentsApi#exploreSegments")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SegmentsApi#exploreSegments")
-    e.printStackTrace()
+    ExplorerResponse result = apiInstance.exploreSegments(bounds, activityType, minCat, maxCat);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SegmentsApi#exploreSegments");
+    e.printStackTrace();
 }
 ```
 
@@ -45,10 +51,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bounds** | [**kotlin.Array&lt;kotlin.Float&gt;**](kotlin.Float.md)| The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude] |
- **activityType** | **kotlin.String**| Desired activity type. | [optional] [enum: running, riding]
- **minCat** | **kotlin.Int**| The minimum climbing category. | [optional]
- **maxCat** | **kotlin.Int**| The maximum climbing category. | [optional]
+ **bounds** | [**List&lt;Float&gt;**](Float.md)| The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude] |
+ **activityType** | **String**| Desired activity type. | [optional] [enum: running, riding]
+ **minCat** | **Integer**| The minimum climbing category. | [optional]
+ **maxCat** | **Integer**| The maximum climbing category. | [optional]
 
 ### Return type
 
@@ -65,30 +71,36 @@ Name | Type | Description  | Notes
 
 <a name="getLoggedInAthleteStarredSegments"></a>
 # **getLoggedInAthleteStarredSegments**
-> kotlin.Array&lt;SummarySegment&gt; getLoggedInAthleteStarredSegments(page, perPage)
+> List&lt;SummarySegment&gt; getLoggedInAthleteStarredSegments(page, perPage)
 
 List Starred Segments
 
 List of the authenticated athlete&#39;s starred segments. Private segments are filtered out unless requested by a token with read_all scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SegmentsApi;
 
-val apiInstance = SegmentsApi()
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+SegmentsApi apiInstance = new SegmentsApi();
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<SummarySegment> = apiInstance.getLoggedInAthleteStarredSegments(page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SegmentsApi#getLoggedInAthleteStarredSegments")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SegmentsApi#getLoggedInAthleteStarredSegments")
-    e.printStackTrace()
+    List<SummarySegment> result = apiInstance.getLoggedInAthleteStarredSegments(page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SegmentsApi#getLoggedInAthleteStarredSegments");
+    e.printStackTrace();
 }
 ```
 
@@ -96,12 +108,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;SummarySegment&gt;**](SummarySegment.md)
+[**List&lt;SummarySegment&gt;**](SummarySegment.md)
 
 ### Authorization
 
@@ -121,22 +133,28 @@ Get Segment
 Returns the specified segment. read_all scope required in order to retrieve athlete-specific segment information, or to retrieve private segments.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SegmentsApi;
 
-val apiInstance = SegmentsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the segment.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+SegmentsApi apiInstance = new SegmentsApi();
+Long id = 789L; // Long | The identifier of the segment.
 try {
-    val result : DetailedSegment = apiInstance.getSegmentById(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SegmentsApi#getSegmentById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SegmentsApi#getSegmentById")
-    e.printStackTrace()
+    DetailedSegment result = apiInstance.getSegmentById(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SegmentsApi#getSegmentById");
+    e.printStackTrace();
 }
 ```
 
@@ -144,7 +162,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the segment. |
+ **id** | **Long**| The identifier of the segment. |
 
 ### Return type
 
@@ -168,23 +186,29 @@ Star Segment
 Stars/Unstars the given segment for the authenticated athlete. Requires profile:write scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SegmentsApi;
 
-val apiInstance = SegmentsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the segment to star.
-val starred : kotlin.Boolean = true // kotlin.Boolean | If true, star the segment; if false, unstar the segment.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+SegmentsApi apiInstance = new SegmentsApi();
+Long id = 789L; // Long | The identifier of the segment to star.
+Boolean starred = false; // Boolean | If true, star the segment; if false, unstar the segment.
 try {
-    val result : DetailedSegment = apiInstance.starSegment(id, starred)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SegmentsApi#starSegment")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SegmentsApi#starSegment")
-    e.printStackTrace()
+    DetailedSegment result = apiInstance.starSegment(id, starred);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SegmentsApi#starSegment");
+    e.printStackTrace();
 }
 ```
 
@@ -192,8 +216,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the segment to star. |
- **starred** | **kotlin.Boolean**| If true, star the segment; if false, unstar the segment. | [default to false]
+ **id** | **Long**| The identifier of the segment to star. |
+ **starred** | **Boolean**| If true, star the segment; if false, unstar the segment. | [default to false]
 
 ### Return type
 

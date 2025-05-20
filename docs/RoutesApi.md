@@ -19,21 +19,27 @@ Export Route GPX
 Returns a GPX file of the route. Requires read_all scope for private routes.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.RoutesApi;
 
-val apiInstance = RoutesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the route.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+RoutesApi apiInstance = new RoutesApi();
+Long id = 789L; // Long | The identifier of the route.
 try {
-    apiInstance.getRouteAsGPX(id)
-} catch (e: ClientException) {
-    println("4xx response calling RoutesApi#getRouteAsGPX")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RoutesApi#getRouteAsGPX")
-    e.printStackTrace()
+    apiInstance.getRouteAsGPX(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RoutesApi#getRouteAsGPX");
+    e.printStackTrace();
 }
 ```
 
@@ -41,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the route. |
+ **id** | **Long**| The identifier of the route. |
 
 ### Return type
 
@@ -65,21 +71,27 @@ Export Route TCX
 Returns a TCX file of the route. Requires read_all scope for private routes.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.RoutesApi;
 
-val apiInstance = RoutesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the route.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+RoutesApi apiInstance = new RoutesApi();
+Long id = 789L; // Long | The identifier of the route.
 try {
-    apiInstance.getRouteAsTCX(id)
-} catch (e: ClientException) {
-    println("4xx response calling RoutesApi#getRouteAsTCX")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RoutesApi#getRouteAsTCX")
-    e.printStackTrace()
+    apiInstance.getRouteAsTCX(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RoutesApi#getRouteAsTCX");
+    e.printStackTrace();
 }
 ```
 
@@ -87,7 +99,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the route. |
+ **id** | **Long**| The identifier of the route. |
 
 ### Return type
 
@@ -111,22 +123,28 @@ Get Route
 Returns a route using its identifier. Requires read_all scope for private routes.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.RoutesApi;
 
-val apiInstance = RoutesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the route.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+RoutesApi apiInstance = new RoutesApi();
+Long id = 789L; // Long | The identifier of the route.
 try {
-    val result : Route = apiInstance.getRouteById(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RoutesApi#getRouteById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RoutesApi#getRouteById")
-    e.printStackTrace()
+    Route result = apiInstance.getRouteById(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RoutesApi#getRouteById");
+    e.printStackTrace();
 }
 ```
 
@@ -134,7 +152,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the route. |
+ **id** | **Long**| The identifier of the route. |
 
 ### Return type
 
@@ -151,30 +169,36 @@ Name | Type | Description  | Notes
 
 <a name="getRoutesByAthleteId"></a>
 # **getRoutesByAthleteId**
-> kotlin.Array&lt;Route&gt; getRoutesByAthleteId(page, perPage)
+> List&lt;Route&gt; getRoutesByAthleteId(page, perPage)
 
 List Athlete Routes
 
 Returns a list of the routes created by the authenticated athlete. Private routes are filtered out unless requested by a token with read_all scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.RoutesApi;
 
-val apiInstance = RoutesApi()
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+RoutesApi apiInstance = new RoutesApi();
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<Route> = apiInstance.getRoutesByAthleteId(page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RoutesApi#getRoutesByAthleteId")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RoutesApi#getRoutesByAthleteId")
-    e.printStackTrace()
+    List<Route> result = apiInstance.getRoutesByAthleteId(page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RoutesApi#getRoutesByAthleteId");
+    e.printStackTrace();
 }
 ```
 
@@ -182,12 +206,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;Route&gt;**](Route.md)
+[**List&lt;Route&gt;**](Route.md)
 
 ### Authorization
 

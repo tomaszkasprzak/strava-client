@@ -19,24 +19,30 @@ Get Activity Streams
 Returns the given activity&#39;s streams. Requires activity:read scope. Requires activity:read_all scope for Only Me activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.StreamsApi;
 
-val apiInstance = StreamsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
-val keys : kotlin.Array<kotlin.String> =  // kotlin.Array<kotlin.String> | Desired stream types.
-val keyByType : kotlin.Boolean = true // kotlin.Boolean | Must be true.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+StreamsApi apiInstance = new StreamsApi();
+Long id = 789L; // Long | The identifier of the activity.
+List<String> keys = Arrays.asList("keys_example"); // List<String> | Desired stream types.
+Boolean keyByType = true; // Boolean | Must be true.
 try {
-    val result : StreamSet = apiInstance.getActivityStreams(id, keys, keyByType)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling StreamsApi#getActivityStreams")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling StreamsApi#getActivityStreams")
-    e.printStackTrace()
+    StreamSet result = apiInstance.getActivityStreams(id, keys, keyByType);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StreamsApi#getActivityStreams");
+    e.printStackTrace();
 }
 ```
 
@@ -44,9 +50,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
- **keys** | [**kotlin.Array&lt;kotlin.String&gt;**](kotlin.String.md)| Desired stream types. | [enum: time, distance, latlng, altitude, velocity_smooth, heartrate, cadence, watts, temp, moving, grade_smooth]
- **keyByType** | **kotlin.Boolean**| Must be true. | [default to true]
+ **id** | **Long**| The identifier of the activity. |
+ **keys** | [**List&lt;String&gt;**](String.md)| Desired stream types. | [enum: time, distance, latlng, altitude, velocity_smooth, heartrate, cadence, watts, temp, moving, grade_smooth]
+ **keyByType** | **Boolean**| Must be true. | [default to true]
 
 ### Return type
 
@@ -70,22 +76,28 @@ Get Route Streams
 Returns the given route&#39;s streams. Requires read_all scope for private routes.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.StreamsApi;
 
-val apiInstance = StreamsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the route.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+StreamsApi apiInstance = new StreamsApi();
+Long id = 789L; // Long | The identifier of the route.
 try {
-    val result : StreamSet = apiInstance.getRouteStreams(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling StreamsApi#getRouteStreams")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling StreamsApi#getRouteStreams")
-    e.printStackTrace()
+    StreamSet result = apiInstance.getRouteStreams(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StreamsApi#getRouteStreams");
+    e.printStackTrace();
 }
 ```
 
@@ -93,7 +105,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the route. |
+ **id** | **Long**| The identifier of the route. |
 
 ### Return type
 
@@ -117,24 +129,30 @@ Get Segment Effort Streams
 Returns a set of streams for a segment effort completed by the authenticated athlete. Requires read_all scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.StreamsApi;
 
-val apiInstance = StreamsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the segment effort.
-val keys : kotlin.Array<kotlin.String> =  // kotlin.Array<kotlin.String> | The types of streams to return.
-val keyByType : kotlin.Boolean = true // kotlin.Boolean | Must be true.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+StreamsApi apiInstance = new StreamsApi();
+Long id = 789L; // Long | The identifier of the segment effort.
+List<String> keys = Arrays.asList("keys_example"); // List<String> | The types of streams to return.
+Boolean keyByType = true; // Boolean | Must be true.
 try {
-    val result : StreamSet = apiInstance.getSegmentEffortStreams(id, keys, keyByType)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling StreamsApi#getSegmentEffortStreams")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling StreamsApi#getSegmentEffortStreams")
-    e.printStackTrace()
+    StreamSet result = apiInstance.getSegmentEffortStreams(id, keys, keyByType);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StreamsApi#getSegmentEffortStreams");
+    e.printStackTrace();
 }
 ```
 
@@ -142,9 +160,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the segment effort. |
- **keys** | [**kotlin.Array&lt;kotlin.String&gt;**](kotlin.String.md)| The types of streams to return. | [enum: time, distance, latlng, altitude, velocity_smooth, heartrate, cadence, watts, temp, moving, grade_smooth]
- **keyByType** | **kotlin.Boolean**| Must be true. | [default to true]
+ **id** | **Long**| The identifier of the segment effort. |
+ **keys** | [**List&lt;String&gt;**](String.md)| The types of streams to return. | [enum: time, distance, latlng, altitude, velocity_smooth, heartrate, cadence, watts, temp, moving, grade_smooth]
+ **keyByType** | **Boolean**| Must be true. | [default to true]
 
 ### Return type
 
@@ -168,24 +186,30 @@ Get Segment Streams
 Returns the given segment&#39;s streams. Requires read_all scope for private segments.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.StreamsApi;
 
-val apiInstance = StreamsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the segment.
-val keys : kotlin.Array<kotlin.String> =  // kotlin.Array<kotlin.String> | The types of streams to return.
-val keyByType : kotlin.Boolean = true // kotlin.Boolean | Must be true.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+StreamsApi apiInstance = new StreamsApi();
+Long id = 789L; // Long | The identifier of the segment.
+List<String> keys = Arrays.asList("keys_example"); // List<String> | The types of streams to return.
+Boolean keyByType = true; // Boolean | Must be true.
 try {
-    val result : StreamSet = apiInstance.getSegmentStreams(id, keys, keyByType)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling StreamsApi#getSegmentStreams")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling StreamsApi#getSegmentStreams")
-    e.printStackTrace()
+    StreamSet result = apiInstance.getSegmentStreams(id, keys, keyByType);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StreamsApi#getSegmentStreams");
+    e.printStackTrace();
 }
 ```
 
@@ -193,9 +217,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the segment. |
- **keys** | [**kotlin.Array&lt;kotlin.String&gt;**](kotlin.String.md)| The types of streams to return. | [enum: distance, latlng, altitude]
- **keyByType** | **kotlin.Boolean**| Must be true. | [default to true]
+ **id** | **Long**| The identifier of the segment. |
+ **keys** | [**List&lt;String&gt;**](String.md)| The types of streams to return. | [enum: distance, latlng, altitude]
+ **keyByType** | **Boolean**| Must be true. | [default to true]
 
 ### Return type
 

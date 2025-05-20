@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **kotlin.Long** | The unique identifier of the activity |  [optional]
+**id** | **Long** | The unique identifier of the activity |  [optional]
 
 
 

@@ -13,31 +13,37 @@ Method | HTTP request | Description
 
 <a name="getClubActivitiesById"></a>
 # **getClubActivitiesById**
-> kotlin.Array&lt;ClubActivity&gt; getClubActivitiesById(id, page, perPage)
+> List&lt;ClubActivity&gt; getClubActivitiesById(id, page, perPage)
 
 List Club Activities
 
 Retrieve recent activities from members of a specific club. The authenticated athlete must belong to the requested club in order to hit this endpoint. Pagination is supported. Athlete profile visibility is respected for all activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ClubsApi;
 
-val apiInstance = ClubsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the club.
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ClubsApi apiInstance = new ClubsApi();
+Long id = 789L; // Long | The identifier of the club.
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<ClubActivity> = apiInstance.getClubActivitiesById(id, page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ClubsApi#getClubActivitiesById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ClubsApi#getClubActivitiesById")
-    e.printStackTrace()
+    List<ClubActivity> result = apiInstance.getClubActivitiesById(id, page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ClubsApi#getClubActivitiesById");
+    e.printStackTrace();
 }
 ```
 
@@ -45,13 +51,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the club. |
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **id** | **Long**| The identifier of the club. |
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;ClubActivity&gt;**](ClubActivity.md)
+[**List&lt;ClubActivity&gt;**](ClubActivity.md)
 
 ### Authorization
 
@@ -64,31 +70,37 @@ Name | Type | Description  | Notes
 
 <a name="getClubAdminsById"></a>
 # **getClubAdminsById**
-> kotlin.Array&lt;SummaryAthlete&gt; getClubAdminsById(id, page, perPage)
+> List&lt;SummaryAthlete&gt; getClubAdminsById(id, page, perPage)
 
 List Club Administrators
 
 Returns a list of the administrators of a given club.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ClubsApi;
 
-val apiInstance = ClubsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the club.
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ClubsApi apiInstance = new ClubsApi();
+Long id = 789L; // Long | The identifier of the club.
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<SummaryAthlete> = apiInstance.getClubAdminsById(id, page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ClubsApi#getClubAdminsById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ClubsApi#getClubAdminsById")
-    e.printStackTrace()
+    List<SummaryAthlete> result = apiInstance.getClubAdminsById(id, page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ClubsApi#getClubAdminsById");
+    e.printStackTrace();
 }
 ```
 
@@ -96,13 +108,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the club. |
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **id** | **Long**| The identifier of the club. |
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;SummaryAthlete&gt;**](SummaryAthlete.md)
+[**List&lt;SummaryAthlete&gt;**](SummaryAthlete.md)
 
 ### Authorization
 
@@ -122,22 +134,28 @@ Get Club
 Returns a given club using its identifier.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ClubsApi;
 
-val apiInstance = ClubsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the club.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ClubsApi apiInstance = new ClubsApi();
+Long id = 789L; // Long | The identifier of the club.
 try {
-    val result : DetailedClub = apiInstance.getClubById(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ClubsApi#getClubById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ClubsApi#getClubById")
-    e.printStackTrace()
+    DetailedClub result = apiInstance.getClubById(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ClubsApi#getClubById");
+    e.printStackTrace();
 }
 ```
 
@@ -145,7 +163,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the club. |
+ **id** | **Long**| The identifier of the club. |
 
 ### Return type
 
@@ -162,31 +180,37 @@ Name | Type | Description  | Notes
 
 <a name="getClubMembersById"></a>
 # **getClubMembersById**
-> kotlin.Array&lt;ClubAthlete&gt; getClubMembersById(id, page, perPage)
+> List&lt;ClubAthlete&gt; getClubMembersById(id, page, perPage)
 
 List Club Members
 
 Returns a list of the athletes who are members of a given club.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ClubsApi;
 
-val apiInstance = ClubsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the club.
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ClubsApi apiInstance = new ClubsApi();
+Long id = 789L; // Long | The identifier of the club.
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<ClubAthlete> = apiInstance.getClubMembersById(id, page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ClubsApi#getClubMembersById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ClubsApi#getClubMembersById")
-    e.printStackTrace()
+    List<ClubAthlete> result = apiInstance.getClubMembersById(id, page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ClubsApi#getClubMembersById");
+    e.printStackTrace();
 }
 ```
 
@@ -194,13 +218,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the club. |
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **id** | **Long**| The identifier of the club. |
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;ClubAthlete&gt;**](ClubAthlete.md)
+[**List&lt;ClubAthlete&gt;**](ClubAthlete.md)
 
 ### Authorization
 
@@ -213,30 +237,36 @@ Name | Type | Description  | Notes
 
 <a name="getLoggedInAthleteClubs"></a>
 # **getLoggedInAthleteClubs**
-> kotlin.Array&lt;SummaryClub&gt; getLoggedInAthleteClubs(page, perPage)
+> List&lt;SummaryClub&gt; getLoggedInAthleteClubs(page, perPage)
 
 List Athlete Clubs
 
 Returns a list of the clubs whose membership includes the authenticated athlete.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ClubsApi;
 
-val apiInstance = ClubsApi()
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ClubsApi apiInstance = new ClubsApi();
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<SummaryClub> = apiInstance.getLoggedInAthleteClubs(page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ClubsApi#getLoggedInAthleteClubs")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ClubsApi#getLoggedInAthleteClubs")
-    e.printStackTrace()
+    List<SummaryClub> result = apiInstance.getLoggedInAthleteClubs(page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ClubsApi#getLoggedInAthleteClubs");
+    e.printStackTrace();
 }
 ```
 
@@ -244,12 +274,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;SummaryClub&gt;**](SummaryClub.md)
+[**List&lt;SummaryClub&gt;**](SummaryClub.md)
 
 ### Authorization
 

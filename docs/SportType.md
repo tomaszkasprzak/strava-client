@@ -4,105 +4,105 @@
 ## Enum
 
 
-    * `ALPINESKI` (value: `"AlpineSki"`)
+* `ALPINESKI` (value: `"AlpineSki"`)
 
-    * `BACKCOUNTRYSKI` (value: `"BackcountrySki"`)
+* `BACKCOUNTRYSKI` (value: `"BackcountrySki"`)
 
-    * `BADMINTON` (value: `"Badminton"`)
+* `BADMINTON` (value: `"Badminton"`)
 
-    * `CANOEING` (value: `"Canoeing"`)
+* `CANOEING` (value: `"Canoeing"`)
 
-    * `CROSSFIT` (value: `"Crossfit"`)
+* `CROSSFIT` (value: `"Crossfit"`)
 
-    * `EBIKERIDE` (value: `"EBikeRide"`)
+* `EBIKERIDE` (value: `"EBikeRide"`)
 
-    * `ELLIPTICAL` (value: `"Elliptical"`)
+* `ELLIPTICAL` (value: `"Elliptical"`)
 
-    * `EMOUNTAINBIKERIDE` (value: `"EMountainBikeRide"`)
+* `EMOUNTAINBIKERIDE` (value: `"EMountainBikeRide"`)
 
-    * `GOLF` (value: `"Golf"`)
+* `GOLF` (value: `"Golf"`)
 
-    * `GRAVELRIDE` (value: `"GravelRide"`)
+* `GRAVELRIDE` (value: `"GravelRide"`)
 
-    * `HANDCYCLE` (value: `"Handcycle"`)
+* `HANDCYCLE` (value: `"Handcycle"`)
 
-    * `HIGHINTENSITYINTERVALTRAINING` (value: `"HighIntensityIntervalTraining"`)
+* `HIGHINTENSITYINTERVALTRAINING` (value: `"HighIntensityIntervalTraining"`)
 
-    * `HIKE` (value: `"Hike"`)
+* `HIKE` (value: `"Hike"`)
 
-    * `ICESKATE` (value: `"IceSkate"`)
+* `ICESKATE` (value: `"IceSkate"`)
 
-    * `INLINESKATE` (value: `"InlineSkate"`)
+* `INLINESKATE` (value: `"InlineSkate"`)
 
-    * `KAYAKING` (value: `"Kayaking"`)
+* `KAYAKING` (value: `"Kayaking"`)
 
-    * `KITESURF` (value: `"Kitesurf"`)
+* `KITESURF` (value: `"Kitesurf"`)
 
-    * `MOUNTAINBIKERIDE` (value: `"MountainBikeRide"`)
+* `MOUNTAINBIKERIDE` (value: `"MountainBikeRide"`)
 
-    * `NORDICSKI` (value: `"NordicSki"`)
+* `NORDICSKI` (value: `"NordicSki"`)
 
-    * `PICKLEBALL` (value: `"Pickleball"`)
+* `PICKLEBALL` (value: `"Pickleball"`)
 
-    * `PILATES` (value: `"Pilates"`)
+* `PILATES` (value: `"Pilates"`)
 
-    * `RACQUETBALL` (value: `"Racquetball"`)
+* `RACQUETBALL` (value: `"Racquetball"`)
 
-    * `RIDE` (value: `"Ride"`)
+* `RIDE` (value: `"Ride"`)
 
-    * `ROCKCLIMBING` (value: `"RockClimbing"`)
+* `ROCKCLIMBING` (value: `"RockClimbing"`)
 
-    * `ROLLERSKI` (value: `"RollerSki"`)
+* `ROLLERSKI` (value: `"RollerSki"`)
 
-    * `ROWING` (value: `"Rowing"`)
+* `ROWING` (value: `"Rowing"`)
 
-    * `RUN` (value: `"Run"`)
+* `RUN` (value: `"Run"`)
 
-    * `SAIL` (value: `"Sail"`)
+* `SAIL` (value: `"Sail"`)
 
-    * `SKATEBOARD` (value: `"Skateboard"`)
+* `SKATEBOARD` (value: `"Skateboard"`)
 
-    * `SNOWBOARD` (value: `"Snowboard"`)
+* `SNOWBOARD` (value: `"Snowboard"`)
 
-    * `SNOWSHOE` (value: `"Snowshoe"`)
+* `SNOWSHOE` (value: `"Snowshoe"`)
 
-    * `SOCCER` (value: `"Soccer"`)
+* `SOCCER` (value: `"Soccer"`)
 
-    * `SQUASH` (value: `"Squash"`)
+* `SQUASH` (value: `"Squash"`)
 
-    * `STAIRSTEPPER` (value: `"StairStepper"`)
+* `STAIRSTEPPER` (value: `"StairStepper"`)
 
-    * `STANDUPPADDLING` (value: `"StandUpPaddling"`)
+* `STANDUPPADDLING` (value: `"StandUpPaddling"`)
 
-    * `SURFING` (value: `"Surfing"`)
+* `SURFING` (value: `"Surfing"`)
 
-    * `SWIM` (value: `"Swim"`)
+* `SWIM` (value: `"Swim"`)
 
-    * `TABLETENNIS` (value: `"TableTennis"`)
+* `TABLETENNIS` (value: `"TableTennis"`)
 
-    * `TENNIS` (value: `"Tennis"`)
+* `TENNIS` (value: `"Tennis"`)
 
-    * `TRAILRUN` (value: `"TrailRun"`)
+* `TRAILRUN` (value: `"TrailRun"`)
 
-    * `VELOMOBILE` (value: `"Velomobile"`)
+* `VELOMOBILE` (value: `"Velomobile"`)
 
-    * `VIRTUALRIDE` (value: `"VirtualRide"`)
+* `VIRTUALRIDE` (value: `"VirtualRide"`)
 
-    * `VIRTUALROW` (value: `"VirtualRow"`)
+* `VIRTUALROW` (value: `"VirtualRow"`)
 
-    * `VIRTUALRUN` (value: `"VirtualRun"`)
+* `VIRTUALRUN` (value: `"VirtualRun"`)
 
-    * `WALK` (value: `"Walk"`)
+* `WALK` (value: `"Walk"`)
 
-    * `WEIGHTTRAINING` (value: `"WeightTraining"`)
+* `WEIGHTTRAINING` (value: `"WeightTraining"`)
 
-    * `WHEELCHAIR` (value: `"Wheelchair"`)
+* `WHEELCHAIR` (value: `"Wheelchair"`)
 
-    * `WINDSURF` (value: `"Windsurf"`)
+* `WINDSURF` (value: `"Windsurf"`)
 
-    * `WORKOUT` (value: `"Workout"`)
+* `WORKOUT` (value: `"Workout"`)
 
-    * `YOGA` (value: `"Yoga"`)
+* `YOGA` (value: `"Yoga"`)
 
 
 

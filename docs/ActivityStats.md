@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**biggestRideDistance** | **kotlin.Double** | The longest distance ridden by the athlete. |  [optional]
-**biggestClimbElevationGain** | **kotlin.Double** | The highest climb ridden by the athlete. |  [optional]
+**biggestRideDistance** | **Double** | The longest distance ridden by the athlete. |  [optional]
+**biggestClimbElevationGain** | **Double** | The highest climb ridden by the athlete. |  [optional]
 **recentRideTotals** | [**ActivityTotal**](ActivityTotal.md) | The recent (last 4 weeks) ride stats for the athlete. |  [optional]
 **recentRunTotals** | [**ActivityTotal**](ActivityTotal.md) | The recent (last 4 weeks) run stats for the athlete. |  [optional]
 **recentSwimTotals** | [**ActivityTotal**](ActivityTotal.md) | The recent (last 4 weeks) swim stats for the athlete. |  [optional]

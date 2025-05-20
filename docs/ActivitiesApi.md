@@ -23,30 +23,36 @@ Create an Activity
 Creates a manual activity for an athlete, requires activity:write scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val name : kotlin.String = name_example // kotlin.String | The name of the activity.
-val sportType : kotlin.String = sportType_example // kotlin.String | Sport type of activity. For example - Run, MountainBikeRide, Ride, etc.
-val startDateLocal : java.time.LocalDateTime = 2013-10-20T19:20:30+01:00 // java.time.LocalDateTime | ISO 8601 formatted date time.
-val elapsedTime : kotlin.Int = 56 // kotlin.Int | In seconds.
-val type : kotlin.String = type_example // kotlin.String | Type of activity. For example - Run, Ride etc.
-val description : kotlin.String = description_example // kotlin.String | Description of the activity.
-val distance : kotlin.Float = 3.4 // kotlin.Float | In meters.
-val trainer : kotlin.Int = 56 // kotlin.Int | Set to 1 to mark as a trainer activity.
-val commute : kotlin.Int = 56 // kotlin.Int | Set to 1 to mark as commute.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+String name = "name_example"; // String | The name of the activity.
+String sportType = "sportType_example"; // String | Sport type of activity. For example - Run, MountainBikeRide, Ride, etc.
+OffsetDateTime startDateLocal = OffsetDateTime.now(); // OffsetDateTime | ISO 8601 formatted date time.
+Integer elapsedTime = 56; // Integer | In seconds.
+String type = "type_example"; // String | Type of activity. For example - Run, Ride etc.
+String description = "description_example"; // String | Description of the activity.
+Float distance = 3.4F; // Float | In meters.
+Integer trainer = 56; // Integer | Set to 1 to mark as a trainer activity.
+Integer commute = 56; // Integer | Set to 1 to mark as commute.
 try {
-    val result : DetailedActivity = apiInstance.createActivity(name, sportType, startDateLocal, elapsedTime, type, description, distance, trainer, commute)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#createActivity")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#createActivity")
-    e.printStackTrace()
+    DetailedActivity result = apiInstance.createActivity(name, sportType, startDateLocal, elapsedTime, type, description, distance, trainer, commute);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#createActivity");
+    e.printStackTrace();
 }
 ```
 
@@ -54,15 +60,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **kotlin.String**| The name of the activity. |
- **sportType** | **kotlin.String**| Sport type of activity. For example - Run, MountainBikeRide, Ride, etc. |
- **startDateLocal** | **java.time.LocalDateTime**| ISO 8601 formatted date time. |
- **elapsedTime** | **kotlin.Int**| In seconds. |
- **type** | **kotlin.String**| Type of activity. For example - Run, Ride etc. | [optional]
- **description** | **kotlin.String**| Description of the activity. | [optional]
- **distance** | **kotlin.Float**| In meters. | [optional]
- **trainer** | **kotlin.Int**| Set to 1 to mark as a trainer activity. | [optional]
- **commute** | **kotlin.Int**| Set to 1 to mark as commute. | [optional]
+ **name** | **String**| The name of the activity. |
+ **sportType** | **String**| Sport type of activity. For example - Run, MountainBikeRide, Ride, etc. |
+ **startDateLocal** | **OffsetDateTime**| ISO 8601 formatted date time. |
+ **elapsedTime** | **Integer**| In seconds. |
+ **type** | **String**| Type of activity. For example - Run, Ride etc. | [optional]
+ **description** | **String**| Description of the activity. | [optional]
+ **distance** | **Float**| In meters. | [optional]
+ **trainer** | **Integer**| Set to 1 to mark as a trainer activity. | [optional]
+ **commute** | **Integer**| Set to 1 to mark as commute. | [optional]
 
 ### Return type
 
@@ -86,23 +92,29 @@ Get Activity
 Returns the given activity that is owned by the authenticated athlete. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
-val includeAllEfforts : kotlin.Boolean = true // kotlin.Boolean | To include all segments efforts.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Long id = 789L; // Long | The identifier of the activity.
+Boolean includeAllEfforts = true; // Boolean | To include all segments efforts.
 try {
-    val result : DetailedActivity = apiInstance.getActivityById(id, includeAllEfforts)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#getActivityById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#getActivityById")
-    e.printStackTrace()
+    DetailedActivity result = apiInstance.getActivityById(id, includeAllEfforts);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#getActivityById");
+    e.printStackTrace();
 }
 ```
 
@@ -110,8 +122,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
- **includeAllEfforts** | **kotlin.Boolean**| To include all segments efforts. | [optional]
+ **id** | **Long**| The identifier of the activity. |
+ **includeAllEfforts** | **Boolean**| To include all segments efforts. | [optional]
 
 ### Return type
 
@@ -128,33 +140,39 @@ Name | Type | Description  | Notes
 
 <a name="getCommentsByActivityId"></a>
 # **getCommentsByActivityId**
-> kotlin.Array&lt;Comment&gt; getCommentsByActivityId(id, page, perPage, pageSize, afterCursor)
+> List&lt;Comment&gt; getCommentsByActivityId(id, page, perPage, pageSize, afterCursor)
 
 List Activity Comments
 
 Returns the comments on the given activity. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
-val page : kotlin.Int = 56 // kotlin.Int | Deprecated. Prefer to use after_cursor.
-val perPage : kotlin.Int = 56 // kotlin.Int | Deprecated. Prefer to use page_size.
-val pageSize : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
-val afterCursor : kotlin.String = afterCursor_example // kotlin.String | Cursor of the last item in the previous page of results, used to request the subsequent page of results.  When omitted, the first page of results is fetched.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Long id = 789L; // Long | The identifier of the activity.
+Integer page = 56; // Integer | Deprecated. Prefer to use after_cursor.
+Integer perPage = 30; // Integer | Deprecated. Prefer to use page_size.
+Integer pageSize = 30; // Integer | Number of items per page. Defaults to 30.
+String afterCursor = "afterCursor_example"; // String | Cursor of the last item in the previous page of results, used to request the subsequent page of results.  When omitted, the first page of results is fetched.
 try {
-    val result : kotlin.Array<Comment> = apiInstance.getCommentsByActivityId(id, page, perPage, pageSize, afterCursor)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#getCommentsByActivityId")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#getCommentsByActivityId")
-    e.printStackTrace()
+    List<Comment> result = apiInstance.getCommentsByActivityId(id, page, perPage, pageSize, afterCursor);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#getCommentsByActivityId");
+    e.printStackTrace();
 }
 ```
 
@@ -162,15 +180,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
- **page** | **kotlin.Int**| Deprecated. Prefer to use after_cursor. | [optional]
- **perPage** | **kotlin.Int**| Deprecated. Prefer to use page_size. | [optional] [default to 30]
- **pageSize** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
- **afterCursor** | **kotlin.String**| Cursor of the last item in the previous page of results, used to request the subsequent page of results.  When omitted, the first page of results is fetched. | [optional]
+ **id** | **Long**| The identifier of the activity. |
+ **page** | **Integer**| Deprecated. Prefer to use after_cursor. | [optional]
+ **perPage** | **Integer**| Deprecated. Prefer to use page_size. | [optional] [default to 30]
+ **pageSize** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **afterCursor** | **String**| Cursor of the last item in the previous page of results, used to request the subsequent page of results.  When omitted, the first page of results is fetched. | [optional]
 
 ### Return type
 
-[**kotlin.Array&lt;Comment&gt;**](Comment.md)
+[**List&lt;Comment&gt;**](Comment.md)
 
 ### Authorization
 
@@ -183,31 +201,37 @@ Name | Type | Description  | Notes
 
 <a name="getKudoersByActivityId"></a>
 # **getKudoersByActivityId**
-> kotlin.Array&lt;SummaryAthlete&gt; getKudoersByActivityId(id, page, perPage)
+> List&lt;SummaryAthlete&gt; getKudoersByActivityId(id, page, perPage)
 
 List Activity Kudoers
 
 Returns the athletes who kudoed an activity identified by an identifier. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Long id = 789L; // Long | The identifier of the activity.
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<SummaryAthlete> = apiInstance.getKudoersByActivityId(id, page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#getKudoersByActivityId")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#getKudoersByActivityId")
-    e.printStackTrace()
+    List<SummaryAthlete> result = apiInstance.getKudoersByActivityId(id, page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#getKudoersByActivityId");
+    e.printStackTrace();
 }
 ```
 
@@ -215,13 +239,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **id** | **Long**| The identifier of the activity. |
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;SummaryAthlete&gt;**](SummaryAthlete.md)
+[**List&lt;SummaryAthlete&gt;**](SummaryAthlete.md)
 
 ### Authorization
 
@@ -234,29 +258,35 @@ Name | Type | Description  | Notes
 
 <a name="getLapsByActivityId"></a>
 # **getLapsByActivityId**
-> kotlin.Array&lt;Lap&gt; getLapsByActivityId(id)
+> List&lt;Lap&gt; getLapsByActivityId(id)
 
 List Activity Laps
 
 Returns the laps of an activity identified by an identifier. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Long id = 789L; // Long | The identifier of the activity.
 try {
-    val result : kotlin.Array<Lap> = apiInstance.getLapsByActivityId(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#getLapsByActivityId")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#getLapsByActivityId")
-    e.printStackTrace()
+    List<Lap> result = apiInstance.getLapsByActivityId(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#getLapsByActivityId");
+    e.printStackTrace();
 }
 ```
 
@@ -264,11 +294,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
+ **id** | **Long**| The identifier of the activity. |
 
 ### Return type
 
-[**kotlin.Array&lt;Lap&gt;**](Lap.md)
+[**List&lt;Lap&gt;**](Lap.md)
 
 ### Authorization
 
@@ -281,32 +311,38 @@ Name | Type | Description  | Notes
 
 <a name="getLoggedInAthleteActivities"></a>
 # **getLoggedInAthleteActivities**
-> kotlin.Array&lt;SummaryActivity&gt; getLoggedInAthleteActivities(before, after, page, perPage)
+> List&lt;SummaryActivity&gt; getLoggedInAthleteActivities(before, after, page, perPage)
 
 List Athlete Activities
 
 Returns the activities of an athlete for a specific identifier. Requires activity:read. Only Me activities will be filtered out unless requested by a token with activity:read_all.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val before : kotlin.Int = 56 // kotlin.Int | An epoch timestamp to use for filtering activities that have taken place before a certain time.
-val after : kotlin.Int = 56 // kotlin.Int | An epoch timestamp to use for filtering activities that have taken place after a certain time.
-val page : kotlin.Int = 56 // kotlin.Int | Page number. Defaults to 1.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Integer before = 56; // Integer | An epoch timestamp to use for filtering activities that have taken place before a certain time.
+Integer after = 56; // Integer | An epoch timestamp to use for filtering activities that have taken place after a certain time.
+Integer page = 56; // Integer | Page number. Defaults to 1.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<SummaryActivity> = apiInstance.getLoggedInAthleteActivities(before, after, page, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#getLoggedInAthleteActivities")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#getLoggedInAthleteActivities")
-    e.printStackTrace()
+    List<SummaryActivity> result = apiInstance.getLoggedInAthleteActivities(before, after, page, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#getLoggedInAthleteActivities");
+    e.printStackTrace();
 }
 ```
 
@@ -314,14 +350,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **before** | **kotlin.Int**| An epoch timestamp to use for filtering activities that have taken place before a certain time. | [optional]
- **after** | **kotlin.Int**| An epoch timestamp to use for filtering activities that have taken place after a certain time. | [optional]
- **page** | **kotlin.Int**| Page number. Defaults to 1. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **before** | **Integer**| An epoch timestamp to use for filtering activities that have taken place before a certain time. | [optional]
+ **after** | **Integer**| An epoch timestamp to use for filtering activities that have taken place after a certain time. | [optional]
+ **page** | **Integer**| Page number. Defaults to 1. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;SummaryActivity&gt;**](SummaryActivity.md)
+[**List&lt;SummaryActivity&gt;**](SummaryActivity.md)
 
 ### Authorization
 
@@ -334,29 +370,35 @@ Name | Type | Description  | Notes
 
 <a name="getZonesByActivityId"></a>
 # **getZonesByActivityId**
-> kotlin.Array&lt;ActivityZone&gt; getZonesByActivityId(id)
+> List&lt;ActivityZone&gt; getZonesByActivityId(id)
 
 Get Activity Zones
 
 Summit Feature. Returns the zones of a given activity. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Long id = 789L; // Long | The identifier of the activity.
 try {
-    val result : kotlin.Array<ActivityZone> = apiInstance.getZonesByActivityId(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#getZonesByActivityId")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#getZonesByActivityId")
-    e.printStackTrace()
+    List<ActivityZone> result = apiInstance.getZonesByActivityId(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#getZonesByActivityId");
+    e.printStackTrace();
 }
 ```
 
@@ -364,11 +406,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
+ **id** | **Long**| The identifier of the activity. |
 
 ### Return type
 
-[**kotlin.Array&lt;ActivityZone&gt;**](ActivityZone.md)
+[**List&lt;ActivityZone&gt;**](ActivityZone.md)
 
 ### Authorization
 
@@ -388,23 +430,29 @@ Update Activity
 Updates the given activity that is owned by the authenticated athlete. Requires activity:write. Also requires activity:read_all in order to update Only Me activities
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActivitiesApi;
 
-val apiInstance = ActivitiesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the activity.
-val body : UpdatableActivity =  // UpdatableActivity | 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+ActivitiesApi apiInstance = new ActivitiesApi();
+Long id = 789L; // Long | The identifier of the activity.
+UpdatableActivity body = new UpdatableActivity(); // UpdatableActivity | 
 try {
-    val result : DetailedActivity = apiInstance.updateActivityById(id, body)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ActivitiesApi#updateActivityById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ActivitiesApi#updateActivityById")
-    e.printStackTrace()
+    DetailedActivity result = apiInstance.updateActivityById(id, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActivitiesApi#updateActivityById");
+    e.printStackTrace();
 }
 ```
 
@@ -412,7 +460,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the activity. |
+ **id** | **Long**| The identifier of the activity. |
  **body** | [**UpdatableActivity**](UpdatableActivity.md)|  | [optional]
 
 ### Return type

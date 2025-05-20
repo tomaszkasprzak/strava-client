@@ -4,20 +4,21 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**score** | **kotlin.Int** |  |  [optional]
+**score** | **Integer** |  |  [optional]
 **distributionBuckets** | [**TimedZoneDistribution**](TimedZoneDistribution.md) |  |  [optional]
-**type** | [**inline**](#Type) |  |  [optional]
-**sensorBased** | **kotlin.Boolean** |  |  [optional]
-**points** | **kotlin.Int** |  |  [optional]
-**customZones** | **kotlin.Boolean** |  |  [optional]
-**max** | **kotlin.Int** |  |  [optional]
+**type** | [**TypeEnum**](#TypeEnum) |  |  [optional]
+**sensorBased** | **Boolean** |  |  [optional]
+**points** | **Integer** |  |  [optional]
+**customZones** | **Boolean** |  |  [optional]
+**max** | **Integer** |  |  [optional]
 
 
-<a name="Type"></a>
-## Enum: type
+<a name="TypeEnum"></a>
+## Enum: TypeEnum
 Name | Value
 ---- | -----
-type | heartrate, power
+HEARTRATE | &quot;heartrate&quot;
+POWER | &quot;power&quot;
 
 
 

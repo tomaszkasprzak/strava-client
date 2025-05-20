@@ -19,21 +19,27 @@ Get Authenticated Athlete
 Returns the currently authenticated athlete. Tokens with profile:read_all scope will receive a detailed athlete representation; all others will receive a summary representation.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.AthletesApi;
 
-val apiInstance = AthletesApi()
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+AthletesApi apiInstance = new AthletesApi();
 try {
-    val result : DetailedAthlete = apiInstance.getLoggedInAthlete()
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling AthletesApi#getLoggedInAthlete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling AthletesApi#getLoggedInAthlete")
-    e.printStackTrace()
+    DetailedAthlete result = apiInstance.getLoggedInAthlete();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AthletesApi#getLoggedInAthlete");
+    e.printStackTrace();
 }
 ```
 
@@ -62,21 +68,27 @@ Get Zones
 Returns the the authenticated athlete&#39;s heart rate and power zones. Requires profile:read_all.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.AthletesApi;
 
-val apiInstance = AthletesApi()
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+AthletesApi apiInstance = new AthletesApi();
 try {
-    val result : Zones = apiInstance.getLoggedInAthleteZones()
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling AthletesApi#getLoggedInAthleteZones")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling AthletesApi#getLoggedInAthleteZones")
-    e.printStackTrace()
+    Zones result = apiInstance.getLoggedInAthleteZones();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AthletesApi#getLoggedInAthleteZones");
+    e.printStackTrace();
 }
 ```
 
@@ -105,22 +117,28 @@ Get Athlete Stats
 Returns the activity stats of an athlete. Only includes data from activities set to Everyone visibilty.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.AthletesApi;
 
-val apiInstance = AthletesApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the athlete. Must match the authenticated athlete.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+AthletesApi apiInstance = new AthletesApi();
+Long id = 789L; // Long | The identifier of the athlete. Must match the authenticated athlete.
 try {
-    val result : ActivityStats = apiInstance.getStats(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling AthletesApi#getStats")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling AthletesApi#getStats")
-    e.printStackTrace()
+    ActivityStats result = apiInstance.getStats(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AthletesApi#getStats");
+    e.printStackTrace();
 }
 ```
 
@@ -128,7 +146,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the athlete. Must match the authenticated athlete. |
+ **id** | **Long**| The identifier of the athlete. Must match the authenticated athlete. |
 
 ### Return type
 
@@ -152,22 +170,28 @@ Update Athlete
 Update the currently authenticated athlete. Requires profile:write scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.AthletesApi;
 
-val apiInstance = AthletesApi()
-val weight : kotlin.Float = 3.4 // kotlin.Float | The weight of the athlete in kilograms.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+AthletesApi apiInstance = new AthletesApi();
+Float weight = 3.4F; // Float | The weight of the athlete in kilograms.
 try {
-    val result : DetailedAthlete = apiInstance.updateLoggedInAthlete(weight)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling AthletesApi#updateLoggedInAthlete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling AthletesApi#updateLoggedInAthlete")
-    e.printStackTrace()
+    DetailedAthlete result = apiInstance.updateLoggedInAthlete(weight);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AthletesApi#updateLoggedInAthlete");
+    e.printStackTrace();
 }
 ```
 
@@ -175,7 +199,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **weight** | **kotlin.Float**| The weight of the athlete in kilograms. |
+ **weight** | **Float**| The weight of the athlete in kilograms. |
 
 ### Return type
 

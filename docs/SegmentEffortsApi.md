@@ -10,32 +10,38 @@ Method | HTTP request | Description
 
 <a name="getEffortsBySegmentId"></a>
 # **getEffortsBySegmentId**
-> kotlin.Array&lt;DetailedSegmentEffort&gt; getEffortsBySegmentId(segmentId, startDateLocal, endDateLocal, perPage)
+> List&lt;DetailedSegmentEffort&gt; getEffortsBySegmentId(segmentId, startDateLocal, endDateLocal, perPage)
 
 List Segment Efforts
 
 Returns a set of the authenticated athlete&#39;s segment efforts for a given segment.  Requires subscription.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SegmentEffortsApi;
 
-val apiInstance = SegmentEffortsApi()
-val segmentId : kotlin.Int = 56 // kotlin.Int | The identifier of the segment.
-val startDateLocal : java.time.LocalDateTime = 2013-10-20T19:20:30+01:00 // java.time.LocalDateTime | ISO 8601 formatted date time.
-val endDateLocal : java.time.LocalDateTime = 2013-10-20T19:20:30+01:00 // java.time.LocalDateTime | ISO 8601 formatted date time.
-val perPage : kotlin.Int = 56 // kotlin.Int | Number of items per page. Defaults to 30.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+SegmentEffortsApi apiInstance = new SegmentEffortsApi();
+Integer segmentId = 56; // Integer | The identifier of the segment.
+OffsetDateTime startDateLocal = OffsetDateTime.now(); // OffsetDateTime | ISO 8601 formatted date time.
+OffsetDateTime endDateLocal = OffsetDateTime.now(); // OffsetDateTime | ISO 8601 formatted date time.
+Integer perPage = 30; // Integer | Number of items per page. Defaults to 30.
 try {
-    val result : kotlin.Array<DetailedSegmentEffort> = apiInstance.getEffortsBySegmentId(segmentId, startDateLocal, endDateLocal, perPage)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SegmentEffortsApi#getEffortsBySegmentId")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SegmentEffortsApi#getEffortsBySegmentId")
-    e.printStackTrace()
+    List<DetailedSegmentEffort> result = apiInstance.getEffortsBySegmentId(segmentId, startDateLocal, endDateLocal, perPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SegmentEffortsApi#getEffortsBySegmentId");
+    e.printStackTrace();
 }
 ```
 
@@ -43,14 +49,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **segmentId** | **kotlin.Int**| The identifier of the segment. |
- **startDateLocal** | **java.time.LocalDateTime**| ISO 8601 formatted date time. | [optional]
- **endDateLocal** | **java.time.LocalDateTime**| ISO 8601 formatted date time. | [optional]
- **perPage** | **kotlin.Int**| Number of items per page. Defaults to 30. | [optional] [default to 30]
+ **segmentId** | **Integer**| The identifier of the segment. |
+ **startDateLocal** | **OffsetDateTime**| ISO 8601 formatted date time. | [optional]
+ **endDateLocal** | **OffsetDateTime**| ISO 8601 formatted date time. | [optional]
+ **perPage** | **Integer**| Number of items per page. Defaults to 30. | [optional] [default to 30]
 
 ### Return type
 
-[**kotlin.Array&lt;DetailedSegmentEffort&gt;**](DetailedSegmentEffort.md)
+[**List&lt;DetailedSegmentEffort&gt;**](DetailedSegmentEffort.md)
 
 ### Authorization
 
@@ -70,22 +76,28 @@ Get Segment Effort
 Returns a segment effort from an activity that is owned by the authenticated athlete. Requires subscription.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SegmentEffortsApi;
 
-val apiInstance = SegmentEffortsApi()
-val id : kotlin.Long = 789 // kotlin.Long | The identifier of the segment effort.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+SegmentEffortsApi apiInstance = new SegmentEffortsApi();
+Long id = 789L; // Long | The identifier of the segment effort.
 try {
-    val result : DetailedSegmentEffort = apiInstance.getSegmentEffortById(id)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SegmentEffortsApi#getSegmentEffortById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SegmentEffortsApi#getSegmentEffortById")
-    e.printStackTrace()
+    DetailedSegmentEffort result = apiInstance.getSegmentEffortById(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SegmentEffortsApi#getSegmentEffortById");
+    e.printStackTrace();
 }
 ```
 
@@ -93,7 +105,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Long**| The identifier of the segment effort. |
+ **id** | **Long**| The identifier of the segment effort. |
 
 ### Return type
 

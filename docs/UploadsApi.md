@@ -17,28 +17,34 @@ Upload Activity
 Uploads a new data file to create an activity from. Requires activity:write scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.UploadsApi;
 
-val apiInstance = UploadsApi()
-val file : java.io.File = /path/to/file.txt // java.io.File | The uploaded file.
-val name : kotlin.String = name_example // kotlin.String | The desired name of the resulting activity.
-val description : kotlin.String = description_example // kotlin.String | The desired description of the resulting activity.
-val trainer : kotlin.String = trainer_example // kotlin.String | Whether the resulting activity should be marked as having been performed on a trainer.
-val commute : kotlin.String = commute_example // kotlin.String | Whether the resulting activity should be tagged as a commute.
-val dataType : kotlin.String = dataType_example // kotlin.String | The format of the uploaded file.
-val externalId : kotlin.String = externalId_example // kotlin.String | The desired external identifier of the resulting activity.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+UploadsApi apiInstance = new UploadsApi();
+File file = new File("/path/to/file.txt"); // File | The uploaded file.
+String name = "name_example"; // String | The desired name of the resulting activity.
+String description = "description_example"; // String | The desired description of the resulting activity.
+String trainer = "trainer_example"; // String | Whether the resulting activity should be marked as having been performed on a trainer.
+String commute = "commute_example"; // String | Whether the resulting activity should be tagged as a commute.
+String dataType = "dataType_example"; // String | The format of the uploaded file.
+String externalId = "externalId_example"; // String | The desired external identifier of the resulting activity.
 try {
-    val result : Upload = apiInstance.createUpload(file, name, description, trainer, commute, dataType, externalId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling UploadsApi#createUpload")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling UploadsApi#createUpload")
-    e.printStackTrace()
+    Upload result = apiInstance.createUpload(file, name, description, trainer, commute, dataType, externalId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UploadsApi#createUpload");
+    e.printStackTrace();
 }
 ```
 
@@ -46,13 +52,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **java.io.File**| The uploaded file. | [optional]
- **name** | **kotlin.String**| The desired name of the resulting activity. | [optional]
- **description** | **kotlin.String**| The desired description of the resulting activity. | [optional]
- **trainer** | **kotlin.String**| Whether the resulting activity should be marked as having been performed on a trainer. | [optional]
- **commute** | **kotlin.String**| Whether the resulting activity should be tagged as a commute. | [optional]
- **dataType** | **kotlin.String**| The format of the uploaded file. | [optional] [enum: fit, fit.gz, tcx, tcx.gz, gpx, gpx.gz]
- **externalId** | **kotlin.String**| The desired external identifier of the resulting activity. | [optional]
+ **file** | **File**| The uploaded file. | [optional]
+ **name** | **String**| The desired name of the resulting activity. | [optional]
+ **description** | **String**| The desired description of the resulting activity. | [optional]
+ **trainer** | **String**| Whether the resulting activity should be marked as having been performed on a trainer. | [optional]
+ **commute** | **String**| Whether the resulting activity should be tagged as a commute. | [optional]
+ **dataType** | **String**| The format of the uploaded file. | [optional] [enum: fit, fit.gz, tcx, tcx.gz, gpx, gpx.gz]
+ **externalId** | **String**| The desired external identifier of the resulting activity. | [optional]
 
 ### Return type
 
@@ -76,22 +82,28 @@ Get Upload
 Returns an upload for a given identifier. Requires activity:write scope.
 
 ### Example
-```kotlin
+```java
 // Import classes:
-//import io.swagger.client.infrastructure.*
-//import io.swagger.client.models.*
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.UploadsApi;
 
-val apiInstance = UploadsApi()
-val uploadId : kotlin.Long = 789 // kotlin.Long | The identifier of the upload.
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: strava_oauth
+OAuth strava_oauth = (OAuth) defaultClient.getAuthentication("strava_oauth");
+strava_oauth.setAccessToken("YOUR ACCESS TOKEN");
+
+UploadsApi apiInstance = new UploadsApi();
+Long uploadId = 789L; // Long | The identifier of the upload.
 try {
-    val result : Upload = apiInstance.getUploadById(uploadId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling UploadsApi#getUploadById")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling UploadsApi#getUploadById")
-    e.printStackTrace()
+    Upload result = apiInstance.getUploadById(uploadId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UploadsApi#getUploadById");
+    e.printStackTrace();
 }
 ```
 
@@ -99,7 +111,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uploadId** | **kotlin.Long**| The identifier of the upload. |
+ **uploadId** | **Long**| The identifier of the upload. |
 
 ### Return type
 
